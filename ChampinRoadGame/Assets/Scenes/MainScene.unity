@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   champin: {fileID: 3761556921944242600, guid: ba8b22d9f30ae4584915681020e421bf, type: 3}
   showScoreTxt: {fileID: 2085974854}
-  showSeasonTxt: {fileID: 0}
+  showSeasonTxt: {fileID: 1241712850}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
