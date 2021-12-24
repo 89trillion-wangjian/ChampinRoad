@@ -24,24 +24,4 @@
 | Scene      | 存放场景文件             |
 
 ## 4. 流程图
-
-```flow
-st=>start: 开始
-op1=>operation: 获取分数
-op2=>operation: 领取奖励
-cond=>condition: 分数大于4000？
-op3=>operation: 增加分数
-op4=>operation: 新赛季
-cond2=>condition: 分数大于4000？
-op5=>operation: 计算分数
-op6=>operation: 分数不变
-
-
-e=>end: 结束
-st->op1->op2->cond
-cond(no)->op3->op1
-cond(yes)->op4->cond2
-cond2(no)->op6->op1
-cond2(yes)->op5->op1
-op5->e
-```
+![](https://github.com/89trillion-wangjian/ChampinRoad/blob/master/sequence.png)
