@@ -22,6 +22,8 @@ public class DataManager
     public int MyScore { set; get; } = 4500;
     public int PreSeason { set; get; } = 1;
 
+    public int MyCoin { set; get; } = 0;
+
     public int getAwardStatus( int key)
     {
         int status = 0;

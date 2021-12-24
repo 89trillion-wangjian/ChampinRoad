@@ -10,7 +10,7 @@ public class ChampinPanelCtrl : MonoBehaviour
     public GameObject champinAwardContent;
     public GameObject champinAwardItem;
     public Text myScore;
-    
+    public Text coinNumTxt;
     
     private DataManager dataManager;
     void Start()
@@ -18,6 +18,7 @@ public class ChampinPanelCtrl : MonoBehaviour
         dataManager = DataManager.CreateInstance();
         RenderAward();
         OnShowMyScore();
+        OnFreshCoin();
     }
     
     /**
@@ -53,8 +54,19 @@ public class ChampinPanelCtrl : MonoBehaviour
             Debug.Log("段位信息" + (dataManager.MyScore - 4000));
             this.myScore.text = string.Concat("大段位", ((dataManager.MyScore - 4000) / 1000 + 1), "(" + dataManager.MyScore + ")");
         }
+
+       
     }
-    
+
+    /**
+     * 刷新金币
+     */
+    public void OnFreshCoin()
+    {
+        this.coinNumTxt.text = dataManager.MyCoin + "";
+        LayoutRebuilder.ForceRebuildLayoutImmediate(coinNumTxt.rectTransform);
+    }
+
     public void OnClosePanel()
     {
         Destroy(this.gameObject);

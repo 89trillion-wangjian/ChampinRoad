@@ -11,6 +11,8 @@ public class ChampinAwardItemCtrl : MonoBehaviour
     public GameObject received;
     public GameObject noReceive;//不可领取
 
+    private int getCoin = 100;
+
     private int conditinValue;
     public void RenderDisplay(int Value)
     {
@@ -46,6 +48,11 @@ public class ChampinAwardItemCtrl : MonoBehaviour
     {
         DataManager.CreateInstance().setAwardStatus(conditinValue, 1);
         this.RenderDisplay(conditinValue);
+
+        DataManager.CreateInstance().MyCoin += 100;
+
+        GameObject panel = GameObject.Find("Canvas/ChampionRoadPanel(Clone)");
+        panel.GetComponent<ChampinPanelCtrl>().OnFreshCoin();
     }
 
 }
