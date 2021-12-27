@@ -24,19 +24,19 @@ public class DataManager
 
     public int MyCoin { set; get; } = 0;
 
-    public int getAwardStatus( int key)
+    public int GetAwardStatus( int key)
     {
         int status = 0;
         this.awardDic.TryGetValue(key, out status);
         return status;
     }
 
-    public void setAwardStatus(int key, int value)
+    public void SetAwardStatus(int key, int value)
     {
         this.awardDic[key] = value;
     }
 
-    public void clearAward()
+    public void ClearAward()
     {
         this.awardDic.Clear();
     }

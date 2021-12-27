@@ -11,7 +11,6 @@ public class ChampinAwardItemCtrl : MonoBehaviour
     public GameObject received;
     public GameObject noReceive;//不可领取
 
-    private int getCoin = 100;
 
     private int conditinValue;
     public void RenderDisplay(int Value)
@@ -25,7 +24,7 @@ public class ChampinAwardItemCtrl : MonoBehaviour
             this.canReceiveAward.SetActive(false);
             return;
         }
-        if (DataManager.CreateInstance().getAwardStatus(Value) == 0)
+        if (DataManager.CreateInstance().GetAwardStatus(Value) == 0)
         {
             this.noReceive.SetActive(false);
             this.received.SetActive(false);
@@ -46,7 +45,7 @@ public class ChampinAwardItemCtrl : MonoBehaviour
      */
     public void OnGetAward()
     {
-        DataManager.CreateInstance().setAwardStatus(conditinValue, 1);
+        DataManager.CreateInstance().SetAwardStatus(conditinValue, 1);
         this.RenderDisplay(conditinValue);
 
         DataManager.CreateInstance().MyCoin += 100;

@@ -7,10 +7,10 @@ public class ChampinPanelCtrl : MonoBehaviour
 {
     // Start is called before the first frame update
     public int addValue = 100;
-    public GameObject champinAwardContent;
-    public GameObject champinAwardItem;
-    public Text myScore;
-    public Text coinNumTxt;
+    [SerializeField]private GameObject champinAwardContent;
+    [SerializeField]private GameObject champinAwardItem;
+    [SerializeField]private Text myScore;
+    [SerializeField]private Text coinNumTxt;
     
     private DataManager dataManager;
     void Start()
@@ -37,7 +37,7 @@ public class ChampinPanelCtrl : MonoBehaviour
             GameObject item = Instantiate(champinAwardItem);
             item.transform.SetParent(champinAwardContent.transform, false);
             item.GetComponent<ChampinAwardItemCtrl>().RenderDisplay(value);
-            dataManager.setAwardStatus(value, 0);
+            dataManager.SetAwardStatus(value, 0);
         }
     }
     /**

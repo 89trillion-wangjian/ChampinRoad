@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class MainView : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject champin;
+    [SerializeField]private GameObject champin;
     private DataManager dataManager;
-    public Text showScoreTxt;
-    public Text showSeasonTxt;
-    
+    [SerializeField]private Text showScoreTxt;
+    [SerializeField] private Text showSeasonTxt;
+
+    private int maxScore = 6000;
+    private int startScore = 4000;
+    private int getCoin = 100;
     void Start()
     {
         dataManager = DataManager.CreateInstance();
@@ -19,8 +22,8 @@ public class MainView : MonoBehaviour
 
     public void OnOpenChampin()
     {
-        GameObject gameObject = Instantiate(this.champin);
-        gameObject.transform.SetParent(transform, false);
+        GameObject node = Instantiate(this.champin);
+        node.transform.SetParent(transform, false);
     }
     
     
@@ -29,18 +32,18 @@ public class MainView : MonoBehaviour
      */
     public void OnAddScore()
     {
-        if (dataManager.MyScore >= 6000)
+        if (dataManager.MyScore >= maxScore)
         {
             return;
         }
 
-        dataManager.MyScore += 100;
-        dataManager.MyScore = dataManager.MyScore > 6000 ? 6000 : dataManager.MyScore;
+        dataManager.MyScore += getCoin;
+        dataManager.MyScore = dataManager.MyScore > maxScore ? maxScore : dataManager.MyScore;
         
         this.showScoreTxt.gameObject.SetActive(true);
         showScoreTxt.text = dataManager.MyScore + "";   
-        CancelInvoke("OnHideScoreText");
-        Invoke("OnHideScoreText", 2);
+        CancelInvoke(nameof(OnHideScoreText));
+        Invoke(nameof(OnHideScoreText), 2);
     }
 
     private void OnHideScoreText()
@@ -54,12 +57,12 @@ public class MainView : MonoBehaviour
     {
         dataManager.PreSeason += 1;
         dataManager.MyScore = CalcScore(dataManager.MyScore);
-        dataManager.clearAward();
+        dataManager.ClearAward();
 
         this.showSeasonTxt.gameObject.SetActive(true);
         showSeasonTxt.text = string.Concat("当前赛季", dataManager.PreSeason);
-        CancelInvoke("OnHideSeasonTxt");
-        Invoke("OnHideSeasonTxt", 2);
+        CancelInvoke(nameof(OnHideSeasonTxt));
+        Invoke(nameof(OnHideSeasonTxt), 2);
     }
 
     public void OnHideSeasonTxt()
@@ -70,9 +73,9 @@ public class MainView : MonoBehaviour
     /**
      * 赛季留分规则
      */
-    public int CalcScore(int myScore)
+    private int CalcScore(int myScore)
     {
-        return myScore <= 4000 ? 4000 : 4000 + (myScore - 4000) / 2;
+        return myScore <= startScore ? startScore : startScore + (myScore - startScore) / 2;
     }
 
     // Update is called once per frame
