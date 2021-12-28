@@ -24,4 +24,4 @@
 | Scene      | 存放场景文件             |
 
 ## 4. 流程图
-![](https://github.com/89trillion-wangjian/ChampinRoad/blob/master/sequence.png)
+![](https://github.com/89trillion-wangjian/ChampinRoad/blob/master/seq.png)
