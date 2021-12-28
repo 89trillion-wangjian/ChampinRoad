@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 476494003}
   - component: {fileID: 476494002}
   - component: {fileID: 476494006}
+  - component: {fileID: 476494007}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -239,6 +240,19 @@ MonoBehaviour:
   champin: {fileID: 3761556921944242600, guid: ba8b22d9f30ae4584915681020e421bf, type: 3}
   showScoreTxt: {fileID: 2085974854}
   showSeasonTxt: {fileID: 1241712850}
+  mainCtrl: {fileID: 476494007}
+--- !u!114 &476494007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476494001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43e70628e2704f6b987691adb7d3960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
