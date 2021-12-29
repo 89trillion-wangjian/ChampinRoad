@@ -58,11 +58,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Controller\ChampinPanelController.cs" />
+     <Compile Include="Assets\Scripts\Controller\ChampionPanelController.cs" />
      <Compile Include="Assets\Scripts\Controller\MainController.cs" />
      <Compile Include="Assets\Scripts\Model\MainModel.cs" />
-     <Compile Include="Assets\Scripts\View\ChampinAwardItemView.cs" />
-     <Compile Include="Assets\Scripts\View\ChampinPanelView.cs" />
+     <Compile Include="Assets\Scripts\View\ChampionAwardItemView.cs" />
+     <Compile Include="Assets\Scripts\View\ChampionPanelView.cs" />
      <Compile Include="Assets\Scripts\View\MainView.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/wangjian/Documents/unityFile/ChampinRoad/ChampinRoadGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

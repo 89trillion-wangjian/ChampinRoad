@@ -6,39 +6,52 @@ namespace Controller
 {
     public class MainController : MonoBehaviour
     {
-        private MainModel _mainModel;
-        private readonly int maxScore = 6000;
-        private readonly int getCoin = 100;
-        private readonly int startScore = 4000;
+        private MainModel mainModel;
 
+        private readonly int maxScore = 6000;
+
+        private readonly int getCoin = 100;
+
+        private readonly int startScore = 4000;
+        
         private void Awake()
         {
-            _mainModel = MainModel.CreateInstance();
+            mainModel = MainModel.CreateInstance();
         }
 
-        public int OnAddScore()
+        /// <summary>
+        /// 加分
+        /// </summary>
+        /// <returns></returns>
+        public int AddScore()
         {
-            if (_mainModel.MyScore >= maxScore)
+            if (mainModel.MyScore >= maxScore)
             {
-                return _mainModel.MyScore;
+                return mainModel.MyScore;
             }
 
-            _mainModel.MyScore += getCoin;
-            _mainModel.MyScore = _mainModel.MyScore > maxScore ? maxScore : _mainModel.MyScore;
-            return _mainModel.MyScore;
+            mainModel.MyScore += getCoin;
+            mainModel.MyScore = mainModel.MyScore > maxScore ? maxScore : mainModel.MyScore;
+            return mainModel.MyScore;
         }
 
-        public int OnFreshSeason()
+        /// <summary>
+        /// 新赛季
+        /// </summary>
+        /// <returns></returns>
+        public int FreshSeason()
         {
-            _mainModel.PreSeason += 1;
-            _mainModel.MyScore = CalcScore(_mainModel.MyScore);
-            _mainModel.ClearAward();
-            return _mainModel.PreSeason;
+            mainModel.PreSeason += 1;
+            mainModel.MyScore = CalcScore(mainModel.MyScore);
+            mainModel.ClearAward();
+            return mainModel.PreSeason;
         }
 
-        /**
-     * 赛季留分规则
-     */
+        /// <summary>
+        /// 计算新赛季分数
+        /// </summary>
+        /// <param name="myScore">当前分数</param>
+        /// <returns></returns>
         private int CalcScore(int myScore)
         {
             return myScore <= startScore ? startScore : startScore + (myScore - startScore) / 2;

@@ -423,7 +423,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2514053848192822931}
-        m_MethodName: OnGetAward
+        m_MethodName: ReceiveAward
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865ff8ad8d16c4ee3ad334ece9152c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  championPanelView: {fileID: 2514053848192822931}
   canReceiveAward: {fileID: 2514053848020778098}
   condition: {fileID: 2514053849364841616}
   received: {fileID: 2514053847754996699}

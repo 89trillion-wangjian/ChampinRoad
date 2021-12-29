@@ -808,7 +808,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 476494006}
-        m_MethodName: OnFreshSeason
+        m_MethodName: FreshSeason
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -939,7 +939,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 476494006}
-        m_MethodName: OnAddScore
+        m_MethodName: AddScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1303,7 +1303,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 476494006}
-        m_MethodName: OnOpenChampin
+        m_MethodName: OpenChampion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

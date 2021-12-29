@@ -1,43 +1,47 @@
 ﻿using Controller;
 using Model;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace View
 {
     public class MainView : MonoBehaviour
     {
-        // Start is called before the first frame update
-        [SerializeField] private GameObject champin;
-        private MainModel _mainModel;
+        [SerializeField] private GameObject champion;
+
         [SerializeField] private Text showScoreTxt;
+
         [SerializeField] private Text showSeasonTxt;
+
         [SerializeField] private MainController mainCtrl;
+
+        private MainModel mainModel;
 
         void Start()
         {
-            _mainModel = MainModel.CreateInstance();
+            mainModel = MainModel.CreateInstance();
         }
 
-        public void OnOpenChampin()
+        public void OpenChampion()
         {
-            Instantiate(this.champin, transform, false);
+            Instantiate(this.champion, transform, false);
         }
 
 
-        /**
-     * 手动增加分数
-     */
-        public void OnAddScore()
+        /// <summary>
+        /// 增加分数
+        /// </summary>
+        public void AddScore()
         {
-            int nowScore = mainCtrl.OnAddScore();
+            var nowScore = mainCtrl.AddScore();
             this.showScoreTxt.gameObject.SetActive(true);
             showScoreTxt.text = nowScore.ToString();
-            CancelInvoke(nameof(OnHideScoreText));
-            Invoke(nameof(OnHideScoreText), 2);
+            CancelInvoke(nameof(HideScoreText));
+            Invoke(nameof(HideScoreText), 2);
         }
 
-        private void OnHideScoreText()
+        private void HideScoreText()
         {
             this.showScoreTxt.gameObject.SetActive(false);
         }
@@ -45,15 +49,15 @@ namespace View
         /**
         * 刷新新赛季
         */
-        public void OnFreshSeason()
+        public void FreshSeason()
         {
             this.showSeasonTxt.gameObject.SetActive(true);
-            showSeasonTxt.text = string.Concat("当前赛季", mainCtrl.OnFreshSeason());
-            CancelInvoke(nameof(OnHideSeasonTxt));
-            Invoke(nameof(OnHideSeasonTxt), 2);
+            showSeasonTxt.text = string.Concat("当前赛季", mainCtrl.FreshSeason());
+            CancelInvoke(nameof(HideSeasonTxt));
+            Invoke(nameof(HideSeasonTxt), 2);
         }
 
-        public void OnHideSeasonTxt()
+        public void HideSeasonTxt()
         {
             this.showSeasonTxt.gameObject.SetActive(false);
         }
