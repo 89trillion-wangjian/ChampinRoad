@@ -8,7 +8,7 @@ namespace View
 {
     public class ChampionPanelView : MonoBehaviour
     {
-        [SerializeField] private GameObject championAwardContent;
+        [SerializeField] private GameObject scrollContent;
 
         [SerializeField] private GameObject championAwardItem;
 
@@ -30,7 +30,7 @@ namespace View
 
         public void CreateAwardItem(int value)
         {
-            Instantiate(championAwardItem, championAwardContent.transform, false);
+            Instantiate(championAwardItem, scrollContent.transform, false);
             ChampionAwardItemView.singleton.RenderDisplay(value);
         }
 
