@@ -237,7 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e8abcde1c1846abaddf8c54d172aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  champion: {fileID: 0}
+  champion: {fileID: 3761556921944242600, guid: ba8b22d9f30ae4584915681020e421bf,
+    type: 3}
   showScoreTxt: {fileID: 2085974854}
   showSeasonTxt: {fileID: 1241712850}
   mainCtrl: {fileID: 476494007}
