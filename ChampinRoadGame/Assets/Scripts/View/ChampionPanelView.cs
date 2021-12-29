@@ -18,11 +18,11 @@ namespace View
 
         [SerializeField] private ChampionPanelController championCtrl;
 
-        private MainModel _mainModel;
+        private MainModel mainModel;
 
         public void Start()
         {
-            _mainModel = MainModel.CreateInstance();
+            mainModel = MainModel.CreateInstance();
             championCtrl.RenderAward();
             championCtrl.ShowMyScore();
             championCtrl.FreshCoin();

@@ -1,5 +1,4 @@
-﻿using System;
-using Model;
+﻿using Model;
 using UnityEngine;
 
 namespace Controller
@@ -13,7 +12,7 @@ namespace Controller
         private readonly int getCoin = 100;
 
         private readonly int startScore = 4000;
-        
+
         private void Awake()
         {
             mainModel = MainModel.CreateInstance();

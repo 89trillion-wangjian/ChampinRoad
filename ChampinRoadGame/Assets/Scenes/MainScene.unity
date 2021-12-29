@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e8abcde1c1846abaddf8c54d172aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  champin: {fileID: 3761556921944242600, guid: ba8b22d9f30ae4584915681020e421bf, type: 3}
+  champion: {fileID: 0}
   showScoreTxt: {fileID: 2085974854}
   showSeasonTxt: {fileID: 1241712850}
   mainCtrl: {fileID: 476494007}
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 3814707424589793656}
   - component: {fileID: 3814707424589793543}
   m_Layer: 5
-  m_Name: freshSeasonBtn
+  m_Name: btnFreshSeason
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 3814707425333585956}
   - component: {fileID: 3814707425333585955}
   m_Layer: 5
-  m_Name: addScoreBtn
+  m_Name: btnAddScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 3814707425915696253}
   - component: {fileID: 3814707425915696252}
   m_Layer: 5
-  m_Name: showInfoBtn
+  m_Name: btnShowInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
