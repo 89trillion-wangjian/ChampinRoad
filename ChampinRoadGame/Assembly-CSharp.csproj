@@ -60,7 +60,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Controller\ChampionPanelController.cs" />
      <Compile Include="Assets\Scripts\Controller\MainController.cs" />
+     <Compile Include="Assets\Scripts\Model\EventType.cs" />
      <Compile Include="Assets\Scripts\Model\MainModel.cs" />
+     <Compile Include="Assets\Scripts\Utils\EventCenter.cs" />
      <Compile Include="Assets\Scripts\View\ChampionAwardItemView.cs" />
      <Compile Include="Assets\Scripts\View\ChampionPanelView.cs" />
      <Compile Include="Assets\Scripts\View\MainView.cs" />

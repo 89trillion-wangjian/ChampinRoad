@@ -1,17 +1,23 @@
 ﻿using Model;
 using UnityEngine;
+using Utils;
+using View;
+using EventType = Model.EventType;
 
 namespace Controller
 {
     public class MainController : MonoBehaviour
     {
+
+        [SerializeField] private MainView mainView;
+        
         private MainModel mainModel;
+        
+        private readonly int maxScore = 6000; //最大分数
 
-        private readonly int maxScore = 6000;
+        private readonly int getCoin = 100;   //单次加分
 
-        private readonly int getCoin = 100;
-
-        private readonly int startScore = 4000;
+        private readonly int startScore = 4000;//可领奖励起始分数
 
         private void Awake()
         {
@@ -31,6 +37,10 @@ namespace Controller
 
             mainModel.MyScore += getCoin;
             mainModel.MyScore = mainModel.MyScore > maxScore ? maxScore : mainModel.MyScore;
+            //刷新段位
+            EventCenter.PostEvent(EventType.FreshLevel);   
+            //刷新奖品状态
+            EventCenter.PostEvent(EventType.FreshAwardStatus);
             return mainModel.MyScore;
         }
 
@@ -43,6 +53,8 @@ namespace Controller
             mainModel.PreSeason += 1;
             mainModel.MyScore = CalcScore(mainModel.MyScore);
             mainModel.ClearAward();
+            //刷新段位
+            EventCenter.PostEvent(EventType.FreshLevel);
             return mainModel.PreSeason;
         }
 

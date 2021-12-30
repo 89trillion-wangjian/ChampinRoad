@@ -1,6 +1,8 @@
 ﻿using Model;
 using UnityEngine;
+using Utils;
 using View;
+using EventType = Model.EventType;
 
 namespace Controller
 {
@@ -18,6 +20,7 @@ namespace Controller
         {
             mainModel = MainModel.CreateInstance();
             Singleton = championPanelController;
+            EventCenter.AddListener(EventType.FreshLevel, ShowMyScore);
         }
 
         /// <summary>

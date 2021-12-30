@@ -2,6 +2,8 @@
 using Model;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
+using EventType = Model.EventType;
 
 namespace View
 {
@@ -24,13 +26,19 @@ namespace View
         public void Awake()
         {
             singleton = championPanelView;
+            EventCenter.AddListener(EventType.FreshAwardStatus, RefreshDisplay);
         }
 
         public void RenderDisplay(int value)
         {
             conditinValue = value;
             this.condition.text = value + "";
-            if (value > MainModel.CreateInstance().MyScore)
+            RefreshDisplay();
+        }
+
+        public void RefreshDisplay()
+        {
+            if (conditinValue > MainModel.CreateInstance().MyScore)
             {
                 this.noReceive.SetActive(true);
                 this.received.SetActive(false);
@@ -38,7 +46,7 @@ namespace View
                 return;
             }
 
-            if (MainModel.CreateInstance().GetAwardStatus(value) == 0)
+            if (MainModel.CreateInstance().GetAwardStatus(conditinValue) == 0)
             {
                 this.noReceive.SetActive(false);
                 this.received.SetActive(false);

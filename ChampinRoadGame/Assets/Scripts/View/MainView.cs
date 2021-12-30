@@ -2,12 +2,14 @@
 using Model;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
+using EventType = Model.EventType;
 
 namespace View
 {
     public class MainView : MonoBehaviour
     {
-        [SerializeField] private GameObject champion;
+        [SerializeField] private GameObject championPanel;
 
         [SerializeField] private Text showScoreTxt;
 
@@ -20,11 +22,18 @@ namespace View
         void Start()
         {
             mainModel = MainModel.CreateInstance();
+            showScoreTxt.text = mainModel.MyScore.ToString();
+            showSeasonTxt.text = string.Concat("当前赛季", mainModel.PreSeason);
         }
 
-        public void OpenChampion()
+        public void ShowChampionPanel()
         {
-            Instantiate(this.champion, transform, false);
+            this.championPanel.SetActive(true);
+        }
+
+        public void HideChampionPanel()
+        {
+            this.championPanel.SetActive(false);
         }
 
 
@@ -36,13 +45,6 @@ namespace View
             var nowScore = mainCtrl.AddScore();
             this.showScoreTxt.gameObject.SetActive(true);
             showScoreTxt.text = nowScore.ToString();
-            CancelInvoke(nameof(HideScoreText));
-            Invoke(nameof(HideScoreText), 2);
-        }
-
-        private void HideScoreText()
-        {
-            this.showScoreTxt.gameObject.SetActive(false);
         }
 
         /**
@@ -52,13 +54,8 @@ namespace View
         {
             this.showSeasonTxt.gameObject.SetActive(true);
             showSeasonTxt.text = string.Concat("当前赛季", mainCtrl.FreshSeason());
-            CancelInvoke(nameof(HideSeasonTxt));
-            Invoke(nameof(HideSeasonTxt), 2);
-        }
-
-        public void HideSeasonTxt()
-        {
-            this.showSeasonTxt.gameObject.SetActive(false);
+            showScoreTxt.text = mainModel.MyScore.ToString();
+            EventCenter.PostEvent(EventType.FreshAwardStatus);
         }
     }
 }
