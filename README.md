@@ -4,7 +4,7 @@
 
 ## 2. 项目框架
 
-* scene
+* Scene
   * MainScene
 * Scripts
   * ChampinAwardItemCtrl    //奖励prefab控制脚本
