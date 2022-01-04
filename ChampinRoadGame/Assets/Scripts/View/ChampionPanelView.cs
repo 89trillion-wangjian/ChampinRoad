@@ -1,7 +1,6 @@
 ﻿using Controller;
 using Model;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace View
@@ -11,51 +10,62 @@ namespace View
         [SerializeField] private GameObject scrollContent;
 
         [SerializeField] private GameObject championAwardItem;
-
-        [SerializeField] private Text myScore;
+        
+        [SerializeField] private Text myLevel;
 
         [SerializeField] private Text coinNumTxt;
 
-        [SerializeField] private ChampionPanelController championCtrl;
+        private ChampionModel championModel = null;
 
-        private MainModel mainModel;
+        private readonly int divideScore = 4000; //大于4000可以领奖
 
-        public void Start()
+        public void Awake()
         {
-            mainModel = MainModel.CreateInstance();
-            championCtrl.RenderAward();
-            championCtrl.ShowMyScore();
-            championCtrl.FreshCoin();
+            championModel = ChampionModel.CreateInstance();
+            championModel.OnScoreChange += FreshLevel;
+            championModel.OnCoinChange += FreshCoin;
+        }
+
+        public void OnEnable()
+        {
+            FreshLevel(championModel.PresentScore);
+            FreshCoin(championModel.PresentCoin);
         }
 
         public void CreateAwardItem(int value)
         {
             Instantiate(championAwardItem, scrollContent.transform, false);
-            ChampionAwardItemView.singleton.RenderDisplay(value);
+            ChampionAwardItemController.Singleton.InitCondition(value);
         }
 
         /// <summary>
-        /// 刷新分数
+        /// 刷新段位信息
         /// </summary>
-        /// <param name="text"></param>
-        public void FreshScore(string text)
+        /// <param name="presentScore">当前分数</param>
+        private void FreshLevel(int presentScore)
         {
-            this.myScore.text = text;
+            if (presentScore < divideScore)
+            {
+                myLevel.text = presentScore.ToString();
+                return;
+            }
+
+            myLevel.text = $"大段位{((championModel.PresentScore - 4000) / 1000 + 1)}({championModel.PresentScore})";
         }
 
         /// <summary>
         /// 刷新金币数值
         /// </summary>
         /// <param name="coinNum">金币数量</param>
-        public void FreshCoin(string coinNum)
+        private void FreshCoin(int coinNum)
         {
-            this.coinNumTxt.text = coinNum;
+            this.coinNumTxt.text = coinNum.ToString();
             LayoutRebuilder.ForceRebuildLayoutImmediate(coinNumTxt.rectTransform);
         }
 
         public void ClosePanel()
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

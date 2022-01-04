@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 476494004}
   - component: {fileID: 476494003}
   - component: {fileID: 476494002}
-  - component: {fileID: 476494006}
   - component: {fileID: 476494007}
+  - component: {fileID: 476494006}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -241,7 +241,6 @@ MonoBehaviour:
   championPanel: {fileID: 3761556922384929863}
   showScoreTxt: {fileID: 2085974854}
   showSeasonTxt: {fileID: 1241712850}
-  mainCtrl: {fileID: 476494007}
 --- !u!114 &476494007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43e70628e2704f6b987691adb7d3960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainView: {fileID: 0}
+  view: {fileID: 476494006}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +572,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u5F53\u524D\u8D5B\u5B632"
+  m_Text: 
 --- !u!222 &1241712851
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -651,7 +650,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 11
+  m_Text: 
 --- !u!222 &2085974855
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -741,9 +740,8 @@ MonoBehaviour:
   scrollContent: {fileID: 3761556922521081352}
   championAwardItem: {fileID: 2514053848192822929, guid: 878529446922647a1942ecb09af4ee14,
     type: 3}
-  myScore: {fileID: 2299266126904859506}
+  myLevel: {fileID: 2299266126904859506}
   coinNumTxt: {fileID: 6395176052455901031}
-  championCtrl: {fileID: 7671609892229352046}
 --- !u!224 &1709390090423192890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -760,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
+  m_AnchoredPosition: {x: -61, y: -50}
   m_SizeDelta: {x: 103, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1803843250692790105
@@ -1336,7 +1334,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476494006}
+      - m_Target: {fileID: 476494007}
         m_MethodName: FreshSeason
         m_Mode: 1
         m_Arguments:
@@ -1467,7 +1465,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476494006}
+      - m_Target: {fileID: 476494007}
         m_MethodName: AddScore
         m_Mode: 1
         m_Arguments:
@@ -1831,7 +1829,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476494006}
+      - m_Target: {fileID: 476494007}
         m_MethodName: ShowChampionPanel
         m_Mode: 1
         m_Arguments:
@@ -1965,7 +1963,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476494006}
+      - m_Target: {fileID: 7671609892229352046}
         m_MethodName: HideChampionPanel
         m_Mode: 1
         m_Arguments:
@@ -2082,7 +2080,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1
 --- !u!1 &6756503084403865710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,7 +2113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 447124078424043970}
-  championPanelController: {fileID: 7671609892229352046}
 --- !u!222 &8073518570255013980
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2138,11 +2135,11 @@ RectTransform:
   m_Father: {fileID: 3046516244533487703}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -52}
-  m_SizeDelta: {x: 44.901318, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -2, y: -52}
+  m_SizeDelta: {x: 44.47059, y: 30}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &9181973036202883324
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
 ﻿using Model;
 using UnityEngine;
-using Utils;
 using View;
-using EventType = Model.EventType;
 
 namespace Controller
 {
@@ -10,17 +8,20 @@ namespace Controller
     {
         [SerializeField] private ChampionPanelView view;
 
-        [SerializeField] private ChampionPanelController championPanelController;
+        private ChampionModel championModel = null;
 
-        private MainModel mainModel;
-
-        public static ChampionPanelController Singleton;
+        public static ChampionPanelController Singleton = null;
 
         private void Awake()
         {
-            mainModel = MainModel.CreateInstance();
-            Singleton = championPanelController;
-            EventCenter.AddListener(EventType.FreshLevel, ShowMyScore);
+            championModel = ChampionModel.CreateInstance();
+            Singleton = this;
+            RenderAward();
+        }
+
+        public void HideChampionPanel()
+        {
+            view.ClosePanel();
         }
 
         /// <summary>
@@ -38,32 +39,8 @@ namespace Controller
                 }
 
                 view.CreateAwardItem(value);
-                mainModel.SetAwardStatus(value, 0);
+                championModel.SetAwardStatus(value, 0);
             }
-        }
-
-        /// <summary>
-        /// 展示段位信息
-        /// </summary>
-        public void ShowMyScore()
-        {
-            if (mainModel.MyScore < 4000)
-            {
-                view.FreshScore(mainModel.MyScore.ToString());
-            }
-            else
-            {
-                view.FreshScore(string.Concat("大段位", ((mainModel.MyScore - 4000) / 1000 + 1)
-                    , "(" + mainModel.MyScore + ")"));
-            }
-        }
-
-        /// <summary>
-        /// 刷新金币数量
-        /// </summary>
-        public void FreshCoin()
-        {
-            view.FreshCoin(mainModel.MyCoin.ToString());
         }
     }
 }

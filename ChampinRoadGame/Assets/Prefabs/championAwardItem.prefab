@@ -422,7 +422,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2514053848192822931}
+      - m_Target: {fileID: 8154398485971193611}
         m_MethodName: ReceiveAward
         m_Mode: 1
         m_Arguments:
@@ -442,6 +442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2514053848192822930}
+  - component: {fileID: 8154398485971193611}
   - component: {fileID: 2514053848192822931}
   m_Layer: 5
   m_Name: championAwardItem
@@ -474,6 +475,19 @@ RectTransform:
   m_AnchoredPosition: {x: -244, y: -434}
   m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8154398485971193611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2514053848192822929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e06911889d204fd2a98fdbe40504581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 2514053848192822931}
 --- !u!114 &2514053848192822931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865ff8ad8d16c4ee3ad334ece9152c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  championPanelView: {fileID: 2514053848192822931}
   canReceiveAward: {fileID: 2514053848020778098}
   condition: {fileID: 2514053849364841616}
   received: {fileID: 2514053847754996699}
