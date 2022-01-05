@@ -2,18 +2,20 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/ChampinRoadGame/[Ll]ibrary/
-/ChampinRoadGame/[Tt]emp/
-/ChampinRoadGame/[Oo]bj/
-/ChampinRoadGame/[Bb]uild/
-/ChampinRoadGame/[Bb]uilds/
-/ChampinRoadGame/[Ll]ogs/
-/ChampinRoadGame/[Mm]emoryCaptures/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
 *.DS_Store
+
+/.idea
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
