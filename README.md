@@ -1,27 +1,22 @@
 ## 1. 整体框架
 
-​		玩家数据（分数，段位），赛季系统（各个分数对应的奖励，新赛季分数规则，）
+model中存储玩家数据（分数，段位），并设置委托，controller监听ui事件，并处理加分，新赛季，view中监听委托事件，当信息变化时view中相应刷新
 
 ## 2. 项目框架
 
 * Scene
   * MainScene
-* Scripts
-  * ChampinAwardItemCtrl    //奖励prefab控制脚本
-  * ChampinPanelCtrl             //奖励列表和信息界面控制脚本
-  * DataManager                     //玩家数据类----分数/段位/赛季信息
-  * MainView                            //全局控制
-* Resources
-* Prefabs                            //存储prefab
+* Scripts                       #脚本目录
+* Res                           #静态资源
+* Prefabs                       #存储prefab
 
  ## 3. 代码逻辑分层
-
-| 文件夹     | 主要职责                 |
-| ---------- | ------------------------ |
-| Resources  | 存放资源                 |
-| Scripts    | 存放脚本文件             |
-| Prefabs    | 存放预制体资源           |
-| Scene      | 存放场景文件             |
+|文件夹        |主要职责                  |
+|-----------   |----------              |
+|Controller     |处理加分，新赛季分数计算                 |
+|Model       |存放玩家数据（分数，赛季等），设置委托            |
+|Utils          |事件传递脚本 |
+|View         |委托事件绑定，处理分数现实，宝箱的刷新等              |
 
 ## 4. 流程图
 ![](https://github.com/89trillion-wangjian/ChampinRoad/blob/master/seq.png)
