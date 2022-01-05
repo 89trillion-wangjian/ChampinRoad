@@ -30,7 +30,10 @@ namespace Model
 
         public int PresentScore
         {
-            get { return presentScore; }
+            get
+            {
+                return presentScore;
+            }
             set
             {
                 presentScore = value;
@@ -40,7 +43,10 @@ namespace Model
 
         public int PresentSeason
         {
-            get { return presentSeason; }
+            get
+            {
+                return presentSeason;
+            }
             set
             {
                 presentSeason = value;
@@ -50,7 +56,10 @@ namespace Model
 
         public int PresentCoin
         {
-            get { return presentCoin; }
+            get
+            {
+                return presentCoin;
+            }
             set
             {
                 presentCoin = value;

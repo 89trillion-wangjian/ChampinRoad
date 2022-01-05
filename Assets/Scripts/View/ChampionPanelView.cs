@@ -10,14 +10,14 @@ namespace View
         [SerializeField] private GameObject scrollContent;
 
         [SerializeField] private GameObject championAwardItem;
-        
+
         [SerializeField] private Text myLevel;
 
         [SerializeField] private Text coinNumTxt;
 
         private ChampionModel championModel = null;
 
-        private readonly int divideScore = 4000; //大于4000可以领奖
+        private readonly int startScore = 4000; //大于4000可以领奖
 
         public void Awake()
         {
@@ -44,13 +44,13 @@ namespace View
         /// <param name="presentScore">当前分数</param>
         private void FreshLevel(int presentScore)
         {
-            if (presentScore < divideScore)
+            if (presentScore < startScore)
             {
                 myLevel.text = presentScore.ToString();
                 return;
             }
 
-            myLevel.text = $"大段位{((championModel.PresentScore - 4000) / 1000 + 1)}({championModel.PresentScore})";
+            myLevel.text = $"大段位{(championModel.PresentScore - 4000) / 1000 + 1}({championModel.PresentScore})";
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace View
         /// <param name="coinNum">金币数量</param>
         private void FreshCoin(int coinNum)
         {
-            this.coinNumTxt.text = coinNum.ToString();
+            coinNumTxt.text = coinNum.ToString();
             LayoutRebuilder.ForceRebuildLayoutImmediate(coinNumTxt.rectTransform);
         }
 

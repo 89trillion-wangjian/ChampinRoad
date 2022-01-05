@@ -31,7 +31,7 @@ namespace View
             RefreshDisplay(championModel.PresentScore);
         }
 
-        public void RefreshDisplay(int presentScore)
+        private void RefreshDisplay(int presentScore)
         {
             if (conditionValue > presentScore)
             {

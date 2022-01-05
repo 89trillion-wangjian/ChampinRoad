@@ -32,7 +32,7 @@ namespace View
         /// <summary>
         /// 增加分数
         /// </summary>
-        public void AddScore(int score)
+        private void AddScore(int score)
         {
             this.showScoreTxt.gameObject.SetActive(true);
             showScoreTxt.text = score.ToString();
