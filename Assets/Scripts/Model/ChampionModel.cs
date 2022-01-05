@@ -6,11 +6,14 @@ namespace Model
     {
         public delegate void OnValueChange(int val);
 
-        private int presentScore = 0;
+        //分数
+        private int presentScore = 0; 
+        
+        //赛季
+        private int presentSeason = 1;
 
-        private int presentSeason = 0;
-
-        private int presentCoin = 0;
+        //金币
+        private int presentCoin = 0; 
 
         public OnValueChange OnScoreChange = null;
 
@@ -20,7 +23,8 @@ namespace Model
 
         private static ChampionModel singleton = null;
 
-        private readonly Dictionary<int, int> awardDic = new Dictionary<int, int>();
+        //领奖情况存储
+        private readonly Dictionary<int, int> awardDic = new Dictionary<int, int>(); 
 
 
         public static ChampionModel CreateInstance()

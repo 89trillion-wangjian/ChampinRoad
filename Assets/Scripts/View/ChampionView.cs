@@ -34,7 +34,6 @@ namespace View
         /// </summary>
         private void AddScore(int score)
         {
-            this.showScoreTxt.gameObject.SetActive(true);
             showScoreTxt.text = score.ToString();
         }
 
@@ -43,7 +42,6 @@ namespace View
         */
         private void FreshSeason(int season)
         {
-            showSeasonTxt.gameObject.SetActive(true);
             showSeasonTxt.text = $"赛季{season}";
         }
     }
